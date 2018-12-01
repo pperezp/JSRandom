@@ -10,12 +10,15 @@
     </head>
 
     <body>
-        <input type="number" id="alumnos" placeholder="Cantidad de alumnos:">
-        <input type="button" id="btnGenerar" value="Generar" onclick="generar()">
+        <input class="input" type="number" id="alumnos" placeholder="Cantidad de alumnos:">
         <br>
-        <input type="number" id="vueltas" placeholder="Vueltas:">
-        <input type="button" id="btnGenerar" value="VERIFICAR" onclick="verificar()">
-        <input type="text" readonly id="contVueltas">
+        <input class="btn azul" type="button" id="btnGenerar" value="Generar Alumnos" onclick="generarCuadrosAlumnos()">
+        <br>
+        <input class="input" type="number" id="vueltas" placeholder="Vueltas:">
+        <br>
+        <input class="btn rojo" type="button" id="btnGenerar" value="Escoger a Alumno RANDOM!" onclick="escogerAlumnoRandom()">
+        <br>
+        <input class="input" type="text" readonly id="contVueltas">
         <div id="contenido"></div>
 
         <script src="js/script.js"></script>

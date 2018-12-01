@@ -4,17 +4,17 @@ var numRandomAnterior = null;
 function getNumeroRandom(limite) {
     var num;
 
-    do{
+    do
         num = Math.floor(Math.random() * (limite));
-    }while(num == numRandomAnterior);
+    while(num == numRandomAnterior);
 
     numRandomAnterior = num;
     return num;
 }
 
-function generar() {
-    var num = document.getElementById("alumnos").value;
-    var contenido = document.getElementById("contenido");
+function generarCuadrosAlumnos() {
+    var num         = $("alumnos").value;
+    var contenido   = $("contenido");
 
     contenido.innerHTML = "";
 
@@ -25,21 +25,26 @@ function generar() {
     }
 }
 
-function verificar() {
-    var cantidad_alumnos = document.getElementById("alumnos").value;
-    var vueltas = document.getElementById("vueltas").value;
-    var contVueltas = document.getElementById("contVueltas");
+function escogerAlumnoRandom() {
+    var cantidad_alumnos    = $("alumnos").value;
+    var vueltas             = $("vueltas").value;
+    var contVueltas         = $("contVueltas");
 
     var i = 1;
     var fun = setInterval(function () {
-        if (i != 0) {
-            document.getElementById("op" + numRandom).style.backgroundColor = "blue";
-        }
+        /*
+        Este if es para que cambie de color rojo a verde
+        después de la primera vuelta
+        */
+        if (i != 0) 
+            //$("op" + numRandom).style.backgroundColor = "blue";
+            $("op" + numRandom).className = "cuadrado azul";
 
         numRandom = getNumeroRandom(cantidad_alumnos);
-        document.getElementById("op" + numRandom).style.backgroundColor = "red";
+        //$("op" + numRandom).style.backgroundColor = "red";
+        $("op" + numRandom).className = "cuadrado rojo";
 
-        contVueltas.value = i;
+        contVueltas.value = i+" ("+$("nom" + numRandom).value+")";
 
         if (i == vueltas) {
             clearInterval(fun);
@@ -49,3 +54,6 @@ function verificar() {
     }, 100);
 }
 
+function $(id){
+    return document.getElementById(id);
+}
