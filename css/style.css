@@ -1,0 +1,19 @@
+.nombres {
+    width: 246px;
+    font-size: 30px;
+}
+
+#contenido {
+    width: 100%;
+    height: 260px;
+}
+
+.cuadrado {
+    padding-top: 100px;
+    width: 250px;
+    height: 150px;
+    float: left;
+    margin-left: 5px;
+    background-color: blue;
+    margin-bottom: 5px;
+}

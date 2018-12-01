@@ -1,82 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Document</title>
+        <title>Generador Random</title>
+        <link rel="stylesheet" href="css/style.css">
     </head>
+
     <body>
-
-        <script>
-        var numRandom;
-        function generar(){
-            var num = document.getElementById("alumnos").value;
-            var contenido = document.getElementById("contenido");
-            var nombres = document.getElementById("nombres");
-
-            contenido.innerHTML = "";
-
-            numRandom = Math.floor(Math.random()*(num));
-
-            for(var i = 0; i<num; i++){
-                contenido.innerHTML += "<div id='op"+i+"' class='cuadrado'><input type='text' id='nom"+i+"' class='nombres'></div>";
-            }
-        }
-
-        function verificar(){
-            var cantidad_alumnos = document.getElementById("alumnos").value;
-            var vueltas = document.getElementById("vueltas").value;
-            var contVueltas = document.getElementById("contVueltas");
-
-            var i = 1;
-            var fun = setInterval(function(){
-                console.log("hola "+i);
-                if(i != 0){
-                    document.getElementById("op"+numRandom).style.backgroundColor = "blue";
-                }
-                numRandom = Math.floor(Math.random()*(cantidad_alumnos));
-                document.getElementById("op"+numRandom).style.backgroundColor = "red";
-
-                contVueltas.value = i;
-
-                if(i == vueltas){
-                    clearInterval(fun);
-                }
-
-                i++;
-            },100);
-        }
-        </script>
-
-        <input type="number" id="alumnos" placeholder="Cantidad de alumnos:" >
-        <input type="button" id="btnGenerar" value="Generar" onclick="generar()"><br>
-        <input type="number" id="vueltas" placeholder="Vueltas:" >
+        <input type="number" id="alumnos" placeholder="Cantidad de alumnos:">
+        <input type="button" id="btnGenerar" value="Generar" onclick="generar()">
+        <br>
+        <input type="number" id="vueltas" placeholder="Vueltas:">
         <input type="button" id="btnGenerar" value="VERIFICAR" onclick="verificar()">
         <input type="text" readonly id="contVueltas">
         <div id="contenido"></div>
 
-        <style>
-
-        .nombres{
-            width: 246px;
-            font-size: 30px;
-        }
-
-        #contenido{
-            width: 100%;
-            height: 260px;
-        }
-
-        .cuadrado{
-            padding-top: 100px;
-            width: 250px;
-            height: 150px;
-            float: left;
-            margin-left: 5px;
-            background-color: blue;
-            margin-bottom: 5px;
-        }
-        </style>
+        <script src="js/script.js"></script>
     </body>
 </html>
